@@ -2,7 +2,9 @@ import express from 'express';
 import morgan from "morgan"
 import cors from 'cors'
 import path from 'path'
+import productosRouter from './routes/productos.routes' //productosRouter es un nombre que cambié de routes, no afecta en nada
 import './database'
+
 
 // crear una instancia express (express tiene que ser con minúscula)
 
@@ -29,14 +31,6 @@ app.use(express.static(path.join(__dirname, '../public')))
 console.log(path.join(__dirname, '../public'))
 
 //rutas: nombre de dominio + ---- 
-
+app.use('/apicafe', productosRouter)
 // http://localhost:4000/
-app.get('/productos', (req, res)=>{
-    res.send('aquí tengo que retornar un arreglo de productos')
-})
-app.get('/productos', (req, res)=>{
-    res.send('Esto es una prueba de la petición GET')
-})
-app.get('/productos2', (req, res)=>{
-    res.send('Esto es una prueba de la petición GET')
-})
+
