@@ -1,5 +1,6 @@
 import Producto from '../models/producto'
 
+
 export const listarProductos = async (req, res) =>{
 try{
      
@@ -37,5 +38,22 @@ res.status(201).json({
     res.status(400).json({
     mensaje: ('Error al intentar agregar un producto')
 })
+}
+};
+
+export const obtenerProducto = async (req, res) =>{
+try{
+//obtener el parámetro
+console.log(req.params.id)
+//pedirle a la base de datos buscar el documento que coincide con el id del parámetro
+const productoBuscado = await Producto.findById(req.params.id)
+//responder con el producto encontrado
+req.status(200).json(productoBuscado);
+}catch(error){
+        console.log(error)
+        res.status(404).json({
+                mensaje:'Error no se pudo encontrar el producto solicitado      '
+        })
+
 }
 }
