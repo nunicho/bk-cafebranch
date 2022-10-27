@@ -1,8 +1,5 @@
 import Producto from '../models/producto'
 
-
-
-
 export const listarProductos = async (req, res) =>{
 try{
      
