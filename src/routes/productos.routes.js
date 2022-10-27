@@ -1,5 +1,5 @@
 import {Router} from "express"; 
-import { obtenerProducto, crearProducto, listarProductos, editarProducto } from "../controllers/productos.controllers";
+import { obtenerProducto, crearProducto, listarProductos, editarProducto, borrarProducto } from "../controllers/productos.controllers";
 
 //ojo, Router no es lo mismo que router.
 const router = Router ();
@@ -11,7 +11,7 @@ router.route('/productos')
 router.route('/productos/:id')
 .get(obtenerProducto)
 .put(editarProducto)
-// .delete()
+.delete(borrarProducto)
 
 
 
