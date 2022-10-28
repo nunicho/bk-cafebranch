@@ -7,26 +7,26 @@ const productoSchema = new Schema({
         type: String,
         required:true,
         unique:true,
-        minLength: 2,
-        maxLength: 50,
+        minLength:2,
+        maxLength:50 
     },
     precio:{
         type:Number,
-        required: true,
-        min:1,
-        max:10000,        
+        required:true,
+        min: 1,
+        max: 10000
     },
     imagen:{
         type: String,
-        required: true
+        required:true
     },
     categoria:{
         type:String,
-        required:true,        
+        required:true
     }
 })
 
-//aqui realizamos el modelo
-const Producto = mongoose.model('producto', productoSchema)
+// aqui realizamos el modelo
+const Producto = mongoose.model('producto', productoSchema);
 
 export default Producto;
