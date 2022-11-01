@@ -67,7 +67,15 @@ export const editarProducto = async (req, res)=>{
   try{
     //buscar el producto por el id, luego modificar los datos con el body
     await Producto.findByIdAndUpdate(req.params.id,req.body);
-    //responder al frontend
+    const errores = validationResult(req);
+    //errores.isEmpty() retorna true cuando no hay errores, retorna false cuando hay errores
+    // pregunto si hay errores
+    if(!errores.isEmpty()){
+      return res.status(400).json({
+        errores: errores.array()
+      })
+    }
+     //responder al frontend
     res.status(200).json({
       mensaje: 'El producto fue editado correctamente'
     })
