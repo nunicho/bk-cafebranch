@@ -17,7 +17,7 @@ app.set('port', process.env.PORT ||  4000)
 app.listen(app.get('port'),()=>{
     console.log('Estoy en el puerto '+ app.get('port'));
 })
-
+// probando 
 // middlewares: funciones que se ejecutan antes de las rutas
 // da información extra en la terminal 
 app.use(morgan('dev'));
